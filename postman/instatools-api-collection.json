@@ -1,0 +1,284 @@
+{
+  "info": {
+    "_postman_id": "instatools-api-v1",
+    "name": "InstaTools API v1",
+    "description": "InstaTools Enterprise API - OFAC Sanctions Screening, PII Detection, Email Verification, and License Validation",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{api_key}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://api.instatools.com",
+      "type": "string"
+    },
+    {
+      "key": "api_key",
+      "value": "YOUR_API_KEY",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "OFAC Sanctions Screening",
+      "item": [
+        {
+          "name": "Screen Single Entity",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"country\": \"US\",\n  \"entityType\": \"individual\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/screen",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "screen"]
+            },
+            "description": "Screen a single entity against OFAC sanctions list. Available on Basic tier and above."
+          }
+        },
+        {
+          "name": "Screen Bulk Entities",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"entities\": [\n    {\n      \"name\": \"John Doe\",\n      \"country\": \"US\"\n    },\n    {\n      \"name\": \"Jane Smith\",\n      \"country\": \"UK\"\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/screen/bulk",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "screen", "bulk"]
+            },
+            "description": "Screen multiple entities in a single request. Enterprise tier only."
+          }
+        }
+      ]
+    },
+    {
+      "name": "PII Detection",
+      "item": [
+        {
+          "name": "Detect PII in Text",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"John Doe's SSN is 123-45-6789 and email is john@example.com\",\n  \"policyId\": \"default\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/detect",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "detect"]
+            },
+            "description": "Detect PII in text content. Available on Basic tier and above."
+          }
+        },
+        {
+          "name": "Detect PII Bulk",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"documents\": [\n    {\n      \"id\": \"doc1\",\n      \"text\": \"Contact: john@example.com\"\n    },\n    {\n      \"id\": \"doc2\",\n      \"text\": \"SSN: 123-45-6789\"\n    }\n  ],\n  \"policyId\": \"default\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/detect/bulk",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "detect", "bulk"]
+            },
+            "description": "Process multiple documents for PII detection. Enterprise tier only."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Email Verification",
+      "item": [
+        {
+          "name": "Verify Single Email",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"test@example.com\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/verify",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "verify"]
+            },
+            "description": "Verify a single email address. Available on Basic tier and above."
+          }
+        },
+        {
+          "name": "Verify Bulk Emails",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"emails\": [\n    \"user1@example.com\",\n    \"user2@example.com\",\n    \"invalid@fake.domain\"\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/verify/bulk",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "verify", "bulk"]
+            },
+            "description": "Verify multiple email addresses in batch. Enterprise tier only."
+          }
+        }
+      ]
+    },
+    {
+      "name": "License Validation",
+      "item": [
+        {
+          "name": "Validate License",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"licenseNumber\": \"MD12345\",\n  \"state\": \"CA\",\n  \"licenseType\": \"medical\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/validate",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "validate"]
+            },
+            "description": "Validate a professional license. Available on Basic tier and above."
+          }
+        },
+        {
+          "name": "Validate Bulk Licenses",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"licenses\": [\n    {\n      \"licenseNumber\": \"MD12345\",\n      \"state\": \"CA\",\n      \"licenseType\": \"medical\"\n    },\n    {\n      \"licenseNumber\": \"RN67890\",\n      \"state\": \"NY\",\n      \"licenseType\": \"nursing\"\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/validate/bulk",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "validate", "bulk"]
+            },
+            "description": "Validate multiple licenses in batch. Enterprise tier only."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Webhooks",
+      "item": [
+        {
+          "name": "List Webhooks",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/webhooks",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "webhooks"]
+            },
+            "description": "List all configured webhooks. Professional tier and above."
+          }
+        },
+        {
+          "name": "Create Webhook",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"https://your-domain.com/webhook\",\n  \"events\": [\"job.completed\", \"job.failed\"],\n  \"secret\": \"your-webhook-secret\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/webhooks",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "webhooks"]
+            },
+            "description": "Create a new webhook configuration. Professional tier and above."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Usage & Limits",
+      "item": [
+        {
+          "name": "Get Usage Stats",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/v1/usage",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "usage"]
+            },
+            "description": "Get current API usage statistics and rate limit status."
+          }
+        }
+      ]
+    }
+  ]
+}
