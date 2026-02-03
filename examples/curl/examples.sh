@@ -5,7 +5,7 @@
 # Replace YOUR_API_KEY with your actual API key
 
 API_KEY="${INSTATOOLS_API_KEY:-YOUR_API_KEY}"
-BASE_URL="https://api.instatools.com"
+BASE_URL="https://api.instatools.co"
 
 echo "=== OFAC Sanctions Screening ==="
 
