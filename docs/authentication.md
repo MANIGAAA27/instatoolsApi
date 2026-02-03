@@ -7,7 +7,7 @@ InstaTools API supports multiple authentication methods to fit your integration 
 The simplest way to authenticate. Include your API key in the `Authorization` header.
 
 ```bash
-curl -X POST https://api.instatools.com/api/v1/screen \
+curl -X POST https://api.instatools.co/api/v1/screen \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"name": "John Doe", "country": "US"}'
@@ -15,7 +15,7 @@ curl -X POST https://api.instatools.com/api/v1/screen \
 
 ### Getting Your API Key
 
-1. Sign up at [instatools.com/signup](https://instatools.com/signup)
+1. Sign up at [instatools.co/signup](https://instatools.co/signup)
 2. Navigate to Developer Portal
 3. Click "Create API Key"
 4. Copy your key (it's only shown once!)
@@ -40,7 +40,7 @@ For enterprise applications requiring programmatic access.
 ### Step 2: Get Access Token
 
 ```bash
-curl -X POST https://api.instatools.com/oauth/token \
+curl -X POST https://api.instatools.co/oauth/token \
   -H "Content-Type: application/x-www-form-urlencoded" \
   -d "grant_type=client_credentials" \
   -d "client_id=YOUR_CLIENT_ID" \
@@ -61,7 +61,7 @@ Response:
 ### Step 3: Use Access Token
 
 ```bash
-curl -X POST https://api.instatools.com/api/v1/screen \
+curl -X POST https://api.instatools.co/api/v1/screen \
   -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIs..." \
   -H "Content-Type: application/json" \
   -d '{"name": "John Doe", "country": "US"}'
@@ -115,7 +115,7 @@ Authentication errors return HTTP 401 or 403:
 
 ```json
 {
-  "type": "https://api.instatools.com/errors/unauthorized",
+  "type": "https://api.instatools.co/errors/unauthorized",
   "title": "Unauthorized",
   "status": 401,
   "detail": "Invalid or expired API key"
