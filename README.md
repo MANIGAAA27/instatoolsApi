@@ -14,7 +14,7 @@ InstaTools provides RESTful APIs for:
 
 ### 1. Get Your API Key
 
-Sign up at [instatools.com/signup](https://instatools.com/signup) and navigate to the Developer Portal to create your API key.
+Sign up at [instatools.com/signup](https://instatools.co/signup) and navigate to the Developer Portal to create your API key.
 
 ### 2. Make Your First Request
 
@@ -48,7 +48,7 @@ InstaTools API supports multiple authentication methods:
 ### API Key Authentication
 
 ```bash
-curl -X POST https://api.instatools.com/v1/screen \
+curl -X POST https://api.instatools.co/v1/screen \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"name": "John Doe", "country": "US"}'
@@ -103,7 +103,7 @@ All errors follow RFC 7807 Problem Details format:
 
 ```json
 {
-  "type": "https://api.instatools.com/errors/rate-limit-exceeded",
+  "type": "https://api.instatools.co/errors/rate-limit-exceeded",
   "title": "Rate Limit Exceeded",
   "status": 429,
   "detail": "You have exceeded 30 requests per minute",
@@ -124,9 +124,9 @@ Import the [Postman Collection](./postman/instatools-api-collection.json) to tes
 
 ## Support
 
-- Documentation: [instatools.com/developers](https://instatools.com/developers)
-- Email: support@instatools.com
-- Contact: [instatools.com/contact](https://instatools.com/contact)
+- Documentation: [instatools.co/developers](https://instatools.co/developers)
+- Email: support@instatools.co
+- Contact: [instatools.co/contact](https://instatools.co/contact)
 
 ## License
 
