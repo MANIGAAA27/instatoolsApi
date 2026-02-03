@@ -8,7 +8,7 @@ import os
 import requests
 
 API_KEY = os.getenv('INSTATOOLS_API_KEY', 'YOUR_API_KEY')
-BASE_URL = 'https://api.instatools.com'
+BASE_URL = 'https://api.instatools.co'
 
 
 def verify_email(email: str) -> dict:
