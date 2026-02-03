@@ -1,6 +1,6 @@
 # InstaTools API
 
-Official API client examples and documentation for [InstaTools](https://instatools.com) - Enterprise-grade compliance and productivity tools.
+Official API client examples and documentation for [InstaTools](https://instatools.co) - Enterprise-grade compliance and productivity tools.
 
 ## Overview
 
@@ -14,7 +14,7 @@ InstaTools provides RESTful APIs for:
 
 ### 1. Get Your API Key
 
-Sign up at [instatools.com/signup](https://instatools.co/signup) and navigate to the Developer Portal to create your API key.
+Sign up at [instatools.co/signup](https://instatools.co/signup) and navigate to the Developer Portal to create your API key.
 
 ### 2. Make Your First Request
 
