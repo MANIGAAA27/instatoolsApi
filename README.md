@@ -8,7 +8,7 @@ InstaTools provides RESTful APIs for:
 - **OFAC Sanctions Screening** - Screen entities against U.S. Treasury OFAC sanctions list
 - **PII Detection & Redaction** - Detect and redact personally identifiable information
 - **Email Verification** - Verify email addresses for deliverability
-- **License Validation** - Validate professional licenses across all 50 U.S. states
+- **License Validation** - Validate professional licenses across all 50 U.S. states(coming soon)
 
 ## Quick Start
 
