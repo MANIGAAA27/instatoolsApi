@@ -18,7 +18,7 @@
   "variable": [
     {
       "key": "base_url",
-      "value": "https://api.instatools.com",
+      "value": "https://api.instatools.co",
       "type": "string"
     },
     {
