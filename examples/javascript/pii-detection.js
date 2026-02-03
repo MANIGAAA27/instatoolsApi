@@ -5,7 +5,7 @@
  */
 
 const API_KEY = process.env.INSTATOOLS_API_KEY || 'YOUR_API_KEY';
-const BASE_URL = 'https://api.instatools.com';
+const BASE_URL = 'https://api.instatools.co';
 
 /**
  * Detect PII in text content
